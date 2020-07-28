@@ -54,11 +54,11 @@ public class AppController {
 		}
     	else {
 	    	leadBeans=leadServices.getLead(leadId.get());
-	    	if(!((leadBeans.getCommunication()!=null && !leadBeans.getCommunication().isEmpty())))
-	    		leadBeans.setCommunication("");
-    		leadBeans.setStatus("");
 	    	if(leadBeans!=null)
 	    	{
+	    		if(!((leadBeans.getCommunication()!=null && !leadBeans.getCommunication().isEmpty())))
+		    		leadBeans.setCommunication("");
+	    		//leadBeans.setStatus("");
 	    		response.setStatus(HttpServletResponse.SC_OK);
 	    	}
 	    	else
@@ -126,6 +126,7 @@ public class AppController {
 	    	if(leadBeans!=null)
 	    	{
 	    		leadBeans.setCommunication(values.get("communication"));
+	    		leadBeans.setStatus("Contacted");
 	        	leadServices.save(leadBeans);
 	        	response.setStatus(HttpServletResponse.SC_ACCEPTED);
 	        	HashMap<String, String> map = new HashMap<>();
@@ -152,7 +153,7 @@ public class AppController {
 		}
     	else {
     		leadServices.delete(leadId.get());
-    		response.setStatus(HttpServletResponse.SC_ACCEPTED);
+    		response.setStatus(HttpServletResponse.SC_OK);
     		HashMap<String, String> map = new HashMap<>();
     		map.put("status", "success");
     		return map;
