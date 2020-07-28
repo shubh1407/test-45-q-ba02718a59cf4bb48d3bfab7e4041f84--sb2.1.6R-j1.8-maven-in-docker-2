@@ -19,6 +19,12 @@ import javax.persistence.Table;
 @Component
 public class LeadBeans {
 	
+	@Override
+	public String toString() {
+		return "LeadBeans [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", mobile=" + mobile
+				+ ", email=" + email + ", locationType=" + locationType + ", locationString=" + locationString
+				+ ", status=" + status + ", communication=" + communication + "]";
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column

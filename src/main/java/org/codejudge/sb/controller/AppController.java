@@ -58,7 +58,7 @@ public class AppController {
 	    	{
 	    		if(!((leadBeans.getCommunication()!=null && !leadBeans.getCommunication().isEmpty())))
 		    		leadBeans.setCommunication("");
-	    		//leadBeans.setStatus("");
+	    		leadBeans.setStatus("");
 	    		response.setStatus(HttpServletResponse.SC_OK);
 	    	}
 	    	else
@@ -73,6 +73,7 @@ public class AppController {
     @PostMapping("/api/leads/")
     public LeadBeans addLead(@RequestBody LeadBeans leadBeans, HttpServletResponse response) 
     {
+    	System.out.println("leadBeans :"+leadBeans.toString());
     	if(leadBeans!=null && leadBeans.getEmail()!=null && !leadBeans.getEmail().isEmpty() &&
     			leadServices.getLeadByEmail(leadBeans.getEmail())) 
     	{
