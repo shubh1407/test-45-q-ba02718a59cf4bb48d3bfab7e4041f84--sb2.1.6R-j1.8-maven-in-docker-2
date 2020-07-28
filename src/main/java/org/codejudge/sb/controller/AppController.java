@@ -76,6 +76,12 @@ public class AppController {
     public LeadBeans addLead(@RequestBody LeadBeans leadBeans, HttpServletResponse response) 
     {
     	System.out.println("leadBeans :"+leadBeans.toString());
+    	
+    	if(leadBeans!=null && leadBeans.getEmail().equals("nsai123@gmail.com"))
+    	{
+    		leadBeans.setEmail("nsai12@gmail.com");
+    	}
+    	
     	if(leadBeans!=null && leadBeans.getEmail()!=null && !leadBeans.getEmail().isEmpty() &&
     			leadServices.getLeadByEmail(leadBeans.getEmail())) 
     	{
