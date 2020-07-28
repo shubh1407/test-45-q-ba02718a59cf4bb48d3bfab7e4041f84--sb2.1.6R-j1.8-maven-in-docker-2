@@ -58,7 +58,9 @@ public class AppController {
 	    	{
 	    		if(!((leadBeans.getCommunication()!=null && !leadBeans.getCommunication().isEmpty())))
 		    		leadBeans.setCommunication("");
-	    		leadBeans.setStatus("");
+	    		if(!((leadBeans.getStatus()!=null && !leadBeans.getStatus().isEmpty())))
+	    			leadBeans.setStatus("");
+	    		
 	    		response.setStatus(HttpServletResponse.SC_OK);
 	    	}
 	    	else
